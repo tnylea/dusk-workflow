@@ -52,6 +52,8 @@ jobs:
 
       - name: Run Migrations
         run: php artisan migrate --path=/database/migrations
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
       - name: Run Laravel Server
         run: php artisan serve > /dev/null 2>&1 &
