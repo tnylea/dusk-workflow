@@ -50,6 +50,9 @@ jobs:
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
 
+      - name: Run Migrations
+        run: php artisan migrate --path=/database/migrations
+
       - name: Run Laravel Server
         run: php artisan serve > /dev/null 2>&1 &
 
